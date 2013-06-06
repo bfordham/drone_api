@@ -1,12 +1,14 @@
-require 'dronestream/request'
-require 'dronestream/strike'
-require 'dronestream/version'
+require './dronestream/client'
+require './dronestream/request'
+require './dronestream/strike'
+require './dronestream/version'
 
 module Dronestream
-  # Returns entire list of strikes
+
+  # Returns a new client
   #
-  def self.all
-    Request.get('/data')
+  def self.new
+    Client.new
   end
 
   # Return the dronestream gem version

@@ -18,16 +18,41 @@ Or install it yourself as:
 
 ## Usage
 
+First, you need a Client
+
 > require 'dronestream'
- => true 
-> d = Dronestream.all.first
- => #<Dronestream::Strike:0x992ee48 @id="51a65578e0932c0e1eb4199f", @number=1, @country="Yemen", @date="2002-11-03T00:00:00.000Z", @town="", @location="Marib Province", @deaths=6, @deaths_min=6, @deaths_max=6, @civilians=0, @injuries=0, @children=0, @tweet_id="278544689483890688", @bureau_id="YEM001", @summary_short="In the first known US targeted assassination using a drone, a CIA Predator struck a car killing six al Qaeda suspects.", @link="http://www.thebureauinvestigates.com/2012/03/29/yemen-reported-us-covert-actions-since-2001/", @target="", @lat="15.47467", @lon="45.322755", @articles=[], @names=["Qa’id Salim Sinan al-Harithi, Abu Ahmad al-Hijazi, Salih Hussain Ali al-Nunu, Awsan Ahmad al-Tarihi, Munir Ahmad Abdallah al-Sauda, Adil Nasir al-Sauda’"]>
+> client = Dronestream::Client.new 
+
+You can also call Dronestream.new:
+
+> require 'dronestream'
+> client = Dronestream.new 
+
+If you just want all of the strikes:
+> strikes = client.all
+
+It is an array of Strike instances.
+
+In order to find a specific strike, you can pass in the number.
+
+> strike = client.find 1
+
+This will return a single strike (or nil, if nothing is found). You can also pass in an attribute name and value, and it will return a list containing all strikes matching that parameter.
+
+> x = c.find :bureau_id => 'YEM001' # Returns an array of 1 element
+> six_deaths = c.find :deaths => 6
+
+There are some find_by_X methods. They are based on the attribute names of the Strike class. (If you're familiar with Rails, think model find methods). The following are equale to the examples above:
+
+> x = c.find_by_bureau_id 'YEM001'
+> six_deaths = c.find_by_deaths 6
+
+One think to keep in mind. All these finders return an array *except* find_by_number. This returns a single instance, just as Client.find does.
+
 
 ## Contributing
 
-This is very much a work in progress. I need to implement searching, plus the ability to pull up a specific strike by ID. Additionally, being able to select, for example, strikes by a window would be nifty.
-
-I'm certainly open to other suggestions as well.
+I'm open to all suggestions.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
