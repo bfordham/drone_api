@@ -25,6 +25,10 @@ Or install it yourself as:
 
 ## Contributing
 
+This is very much a work in progress. I need to implement searching, plus the ability to pull up a specific strike by ID. Additionally, being able to select, for example, strikes by a window would be nifty.
+
+I'm certainly open to other suggestions as well.
+
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Added some feature'`)
