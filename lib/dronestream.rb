@@ -1,6 +1,6 @@
-require './dronestream/request'
-require './dronestream/strike'
-require './dronestream/version'
+require 'dronestream/request'
+require 'dronestream/strike'
+require 'dronestream/version'
 
 module Dronestream
   # Returns entire list of strikes
