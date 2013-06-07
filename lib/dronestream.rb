@@ -1,7 +1,7 @@
-require './dronestream/client'
-require './dronestream/request'
-require './dronestream/strike'
-require './dronestream/version'
+require 'dronestream/client'
+require 'dronestream/request'
+require 'dronestream/strike'
+require 'dronestream/version'
 
 module Dronestream
 

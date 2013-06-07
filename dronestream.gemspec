@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "dronestream"
   gem.require_paths = ["lib"]
   gem.version       = Dronestream::VERSION
+
+  gem.add_development_dependency 'rspec', '~> 2.13'
 end
