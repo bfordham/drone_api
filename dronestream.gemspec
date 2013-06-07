@@ -5,8 +5,8 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Bryan Fordham"]
   gem.email         = ["bfordham@gmail.com"]
   gem.description   = %q{Library to access the Dronestream API}
-  gem.summary       = %q{Library to access the Dronestream API}
-  gem.homepage      = ""
+  gem.summary       = %q{Allows retrieving drone strike info, and basic searching.}
+  gem.homepage      = "https://github.com/bfordham/dronestream"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
