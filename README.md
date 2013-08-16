@@ -42,12 +42,18 @@ This will return a single strike (or nil, if nothing is found). You can also pas
 > x = c.find :bureau_id => 'YEM001' # Returns an array of 1 element
 > six_deaths = c.find :deaths => 6
 
-There are some find_by_X methods. They are based on the attribute names of the Strike class. (If you're familiar with Rails, think model find methods). The following are equale to the examples above:
+There are some find_by_X methods. They are based on the attribute names of the Strike class. (If you're familiar with Rails, think model find methods). The following are equal to the examples above:
 
 > x = c.find_by_bureau_id 'YEM001'
 > six_deaths = c.find_by_deaths 6
 
 One think to keep in mind. All these finders return an array *except* find_by_number. This returns a single instance, just as Client.find does.
+
+The finder methods are:
+- find_by_X(value) - Find all where X equals value
+- find_X_gt[e](value) - Finds all where X is greater than [or equal to] value.
+- find_X_lt[e](value) - Finds all where X is less than [or equal to] value.
+- find_X_btwn(low, high) - Finds all where X is between low and high.
 
 
 ## Contributing
