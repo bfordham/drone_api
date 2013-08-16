@@ -1,6 +1,6 @@
 # DroneApi
 
-Library to access the DroneApi API
+Library to access the [Dronestre.am API](http://dronestre.am/)
 
 ## Installation
 
