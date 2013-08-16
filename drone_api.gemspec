@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "drone_api"
   gem.require_paths = ["lib"]
   gem.version       = DroneApi::VERSION
+  gem.license       = 'MIT'
 
   gem.add_development_dependency 'rspec', '~> 2.13'
 end
