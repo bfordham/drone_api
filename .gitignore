@@ -15,3 +15,5 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+drone_api.sublime-project
+drone_api.sublime-workspace

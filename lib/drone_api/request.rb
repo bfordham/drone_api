@@ -1,7 +1,7 @@
 require 'json'
 require 'open-uri'
 
-module Dronestream
+module DroneApi
   module Request
     BASEURL = 'http://api.dronestre.am'
     def self.get(u)

@@ -1,6 +1,6 @@
 $:.unshift File.expand_path("../..", __FILE__)
 
-require 'dronestream'
+require 'drone_api'
 require 'rspec'
 
 RSpec.configure do |config|

@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe 'Dronestream' do
+describe 'DroneApi' do
   it 'should return correct version string' do
-    Dronestream.version.should == "Dronestream version #{Dronestream::VERSION}"
+    DroneApi.version.should == "DroneApi version #{DroneApi::VERSION}"
   end
 end
 
-describe 'Dronestream::Strike' do
+describe 'DroneApi::Strike' do
 	before do
-		@strike = Dronestream::Strike.new
+		@strike = DroneApi::Strike.new
 	end
 
 	subject { @strike }
@@ -36,4 +36,26 @@ describe 'Dronestream::Strike' do
 	it { should respond_to(:lon) }
 	it { should respond_to(:articles) }
 	it { should respond_to(:names) }
+end
+
+describe 'GeoJson' do
+	describe '#[]=' do
+		it "allows setting @properties" do
+			gj = DroneApi::GeoJson.new
+                        expect { gj[:foo] = :bar }.not_to raise_error
+
+			gj[:foo].should eq :bar
+		end
+	end
+
+	describe '#[]' do
+		before do
+			@gj = DroneApi::GeoJson.new
+			@gj[:foo] = 'bar'
+		end
+
+		it 'allows @properties to be retrieved' do
+		 	@gj[:foo].should eq 'bar'
+		 end
+	end
 end

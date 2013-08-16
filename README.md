@@ -1,12 +1,12 @@
-# Dronestream
+# DroneApi
 
-Library to access the Dronestream API
+Library to access the DroneApi API
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'dronestream'
+    gem 'drone_api'
 
 And then execute:
 
@@ -14,19 +14,19 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install dronestream
+    $ gem install drone_api
 
 ## Usage
 
 First, you need a Client
 
-> require 'dronestream'
-> client = Dronestream::Client.new 
+> require 'drone_api'
+> client = DroneApi::Client.new 
 
-You can also call Dronestream.new:
+You can also call DroneApi.new:
 
-> require 'dronestream'
-> client = Dronestream.new 
+> require 'drone_api'
+> client = DroneApi.new 
 
 If you just want all of the strikes:
 > strikes = client.all

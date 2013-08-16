@@ -1,6 +1,7 @@
+require 'date'
 require 'json'
 
-module Dronestream
+module DroneApi
   class Strike
   	attr_reader :id, :number, :country, :date, :town, :location, :deaths, 
   		:deaths_min, :deaths_max, :civilians, :injuries, :children, :tweet_id, 
@@ -27,28 +28,43 @@ module Dronestream
   		unless data.nil?
   			data = JSON.parse(data) if data.is_a? String
 
-  			@id = data['_id'] || ''
-			@number = data['number'].to_i || 0
-			@country = data['country'] || ''
-			@date = data['date'] || ''
-			@town = data['town'] || ''
-			@location = data['location'] || ''
-			@deaths = data['deaths'].to_i || 0
-			@deaths_min = data['deaths_min'].to_i || 0
-			@deaths_max = data['deaths_max'].to_i || 0
-			@civilians = data['civilians'].to_i || 0
-			@injuries = data['injuries'].to_i || 0
-			@children = data['children'].to_i || 0
-			@tweet_id = data['tweet_id'] || ''
-			@bureau_id = data['bureau_id'] || ''
-			@summary_short = data['bij_summary_short'] || ''
-			@link = data['bij_link'] || ''
-			@target = data['target'] || ''
-			@lat = data['lat'] || ''
-			@lon = data['lon'] || ''
-			@articles = data['articles'] || ''
-			@names = data['names'] || ''
+        @id = parse_string(data['_id'])
+        @number = parse_int(data['number'])
+        @country = parse_string(data['country'])
+        @date = parse_date(data['date'])
+        @town = parse_string(data['town'])
+        @location = parse_string(data['location'])
+        @deaths = parse_int(data['deaths'])
+        @deaths_min = parse_int(data['deaths_min'])
+        @deaths_max = parse_int(data['deaths_max'])
+        @civilians = parse_int(data['civilians'])
+        @injuries = parse_int(data['injuries'])
+        @children = parse_int(data['children'])
+        @tweet_id = parse_string(data['tweet_id'])
+        @bureau_id = parse_string(data['bureau_id'])
+        @summary_short = parse_string(data['bij_summary_short'])
+        @link = parse_string(data['bij_link'])
+        @target = parse_string(data['target'])
+        @lat = parse_string(data['lat'])
+        @lon = parse_string(data['lon'])
+        @articles = parse_string(data['articles'])
+        @names = parse_string(data['names'])
+
   		end
   	end
+
+    private
+
+    def parse_int(val)
+      val.nil? ? 0 : val.to_i
+    end
+
+    def parse_date(val)
+      val.nil? ? nil : DateTime.strptime(val, '%Y-%m-%dT%H:%M:%S.%LZ')
+    end
+
+    def parse_string(val)
+      val.nil? ? '' : val
+    end
   end
 end

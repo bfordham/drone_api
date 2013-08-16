@@ -1,9 +1,10 @@
-require 'dronestream/client'
-require 'dronestream/request'
-require 'dronestream/strike'
-require 'dronestream/version'
+require 'drone_api/client'
+require 'drone_api/request'
+require 'drone_api/strike'
+require 'drone_api/geo_json'
+require 'drone_api/version'
 
-module Dronestream
+module DroneApi
 
   # Returns a new client
   #
@@ -11,9 +12,10 @@ module Dronestream
     Client.new
   end
 
-  # Return the dronestream gem version
+  # Return the drone_api gem version
   #
   def self.version
-    "Dronestream version #{Dronestream::VERSION}"
+    "DroneApi version #{DroneApi::VERSION}"
   end
+
 end
